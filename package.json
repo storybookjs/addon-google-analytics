@@ -31,6 +31,9 @@
     "prerelease": "node check-metadata.js",
     "release": "npm run build && auto shipit"
   },
+  "dependencies": {
+    "react-ga": "^2.7.0"
+  },
   "devDependencies": {
     "@babel/cli": "^7.12.1",
     "@babel/core": "^7.12.3",

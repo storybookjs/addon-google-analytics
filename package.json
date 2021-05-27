@@ -1,17 +1,15 @@
 {
-  "name": "storybook-addon-kit",
-  "version": "0.0.0",
-  "description": "everything you need to build a Storybook addon",
+  "name": "@storybook/addon-google-analytics",
+  "version": "6.3.0-next.0",
+  "description": "Storybook addon for google analytics",
   "keywords": [
     "storybook-addons",
-    "style",
-    "test"
+    "code"
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/storybookjs/storybook-addon-kit"
+    "url": "https://github.com/storybookjs/addon-google-analytics"
   },
-  "author": "winkerVSbecks",
   "license": "MIT",
   "main": "dist/preset",
   "files": [
@@ -71,12 +69,10 @@
     "access": "public"
   },
   "storybook": {
-    "displayName": "Addon Kit",
-    "supportedFrameworks": [
-      "react",
-      "vue",
-      "angular"
-    ],
-    "icon": "https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png"
+    "displayName": "Google Analytics",
+    "icon": "https://pbs.twimg.com/profile_images/1021848775885651968/cU74ahCn_400x400.jpg",
+    "unsupportedFrameworks": [
+      "react-native"
+    ]
   }
 }

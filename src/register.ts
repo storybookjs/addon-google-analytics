@@ -2,7 +2,13 @@ import { window as globalWindow } from 'global';
 import { addons } from '@storybook/addons';
 import { STORY_CHANGED, STORY_ERRORED, STORY_MISSING } from '@storybook/core-events';
 
-import ReactGA from 'react-ga';
+import ReactGA from 'react-ga4';
+
+declare global {
+  interface Window {
+    STORYBOOK_GA_OPTIONS: object
+  }
+}
 
 addons.register('storybook/google-analytics', (api) => {
   ReactGA.initialize(globalWindow.STORYBOOK_GA_ID, globalWindow.STORYBOOK_REACT_GA_OPTIONS);
@@ -15,16 +21,16 @@ addons.register('storybook/google-analytics', (api) => {
 
   api.on(STORY_CHANGED, () => {
     const { path } = api.getUrlState();
-    ReactGA.pageview(path);
+    ReactGA.send({ hitType: "pageview", page: path });
   });
   api.on(STORY_ERRORED, ({ description }: { description: string }) => {
-    ReactGA.exception({
+    ReactGA.event("exception", {
       description,
       fatal: true,
     });
   });
   api.on(STORY_MISSING, (id: string) => {
-    ReactGA.exception({
+    ReactGA.event("exception", {
       description: `attempted to render ${id}, but it is missing`,
       fatal: false,
     });
